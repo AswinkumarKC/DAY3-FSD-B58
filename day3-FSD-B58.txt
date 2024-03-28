@@ -1,0 +1,82 @@
+1)   function compareJSON(){
+
+let obj1={name: "Person 1", age:5};
+let obj2={age:5,name: "Person 1"};
+
+if (Object.keys(obj1).length !== Object.keys(obj2).length){
+    return false;
+}
+
+for (var key in obj1){
+    if(!obj2.hasOwnProperty(key) || obj1[key]!==obj2[key]){
+        return false;
+    }
+}
+return true;
+}
+
+const result=compareJSON();
+console.log(result);
+
+
+ 2) <html>
+<head>
+    <title>XML HttpRequest</title>
+</head> 
+<body>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET","https://restcountries.com/v3.1/all");
+        xhr.onload=function(){
+            if(xhr.status ===200){
+                console.log(xhr.responseText);
+                var countryflags=JSON.parse(xhr.responseText);
+                for(var i=0; i<countryflags.length;i++){
+                    console.log(countryflags[i].flags);
+                }
+        
+            }else{
+                console.log("Request failed", xhr.status)
+            }
+          
+        };
+        xhr.send();
+        
+    </script>
+
+</body>
+</html>
+
+
+
+3)  <html>
+<head>
+    <title>XML HttpRequest</title>
+</head> 
+<body>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET","https://restcountries.com/v3.1/all");
+        xhr.onload=function(){
+            if(xhr.status ===200){
+                //console.log(xhr.responseText);
+                var countryflags=JSON.parse(xhr.responseText);
+                for(var i=0; i<countryflags.length;i++){
+                    
+                    console.log(countryflags[i].name);
+                    console.log(countryflags[i].region);
+                    console.log(countryflags[i].subregion);
+                    console.log(countryflags[i].population);
+                }
+        
+            }else{
+                console.log("Request failed", xhr.status)
+            }
+          
+        };
+        xhr.send();
+        
+    </script>
+
+</body>
+</html>
